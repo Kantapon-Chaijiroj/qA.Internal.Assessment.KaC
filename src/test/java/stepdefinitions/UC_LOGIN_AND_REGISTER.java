@@ -91,12 +91,8 @@ public class UC_LOGIN_AND_REGISTER {
 
 	@Then("Verify that the new user is a logged in user")
 	public void Verify_that_the_new_user_is_a_logged_in_user() {
-		Locator Username = page.locator("//div[@id='WelcomeContent' and @text() = 'Welcome Kantapon!']");
-		//Username = page.locator("//div[@id='WelcomeContent']");
-
-		if (Username.isVisible()){
-			throw new RuntimeException("User not logged in");
-		}
+		Locator	Username = page.locator("//div[@id='WelcomeContent'][contains(text(),'Kantapon')]");
+		if (!Username.isVisible()) throw new RuntimeException("User not logged in");
 	}
 
 	@After
